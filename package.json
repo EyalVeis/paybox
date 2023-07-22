@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "build": "npm run :build:server && npm run :build:todos && npm run :build:notifications",
+    "start": "start npm run :start:server && start npm run :start:todos && start npm run :start:notifications",
+    "start1": "concurrently \"npm run :start:server\" \"npm run :start:todos\" \"npm run :start:notifications\"",
+    ":build:server": "pushd web && pushd server && npm install && npm run build && popd && popd",
+    ":build:todos": "pushd microservices && pushd todos && npm install && npm run build && popd && popd",
+    ":build:notifications": "pushd microservices && pushd notifications && npm install && npm run build && popd && popd",
+    ":start:server": "pushd web && pushd server && npm run start && popd && popd",
+    ":start:todos": "pushd microservices && pushd todos && npm run start && popd && popd",
+    ":start:notifications": "pushd microservices && pushd notifications && npm run start && popd && popd"
+  }
+}
